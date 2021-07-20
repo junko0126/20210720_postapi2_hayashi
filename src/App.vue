@@ -1,12 +1,32 @@
 <template>
   <div id="app">
     <div class="home">
-      <input type="text" maxlength="7">
-      <button>住所自動入力</button>
+      <input type="text" v-model="postcode" maxlength="7">
+      <button @click="search()">住所自動入力</button>
       <p>Address:</p>
     </div>
   </div>
 </template>
+
+<script>
+import axios from "axios";
+export default{
+  data() {
+    return {
+      postcode:""
+    };
+  },
+    methods: {
+      async search(){
+        await axios.get(`https://apis.postcode-jp.com/api/v4/postcodes/1000001?apikey=scXXQD1i29VdtnFS1QOuruB2oG6GIyNseCmaqEW`);
+        .then(response =>{
+          console.log(response);
+        });
+      }
+    }
+  };
+</script>
+
 
 <style>
 #app {
