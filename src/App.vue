@@ -19,7 +19,7 @@ export default{
   },
     methods: {
       async search(){
-        await axios.get(`https://apis.postcode-jp.com/api/v4/postcodes/1000001?apikey=scXXQD1i29VdtnFS1QOuruB2oG6GIyNseCmaqEW`)
+        await axios.get(`https://apis.postcode-jp.com/api/v4/postcodes/${this.postcode}?apikey=scXXQD1i29VdtnFS1QOuruB2oG6GIyNseCmaqEW`)
         .then(response => {
           this.result = response.data[0].allAddress;
         });
